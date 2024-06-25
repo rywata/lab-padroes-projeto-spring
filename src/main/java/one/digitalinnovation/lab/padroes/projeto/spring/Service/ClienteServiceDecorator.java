@@ -23,15 +23,17 @@ public class ClienteServiceDecorator implements ClienteService {
     }
 
     @Override
-    public void inserir(Cliente cliente) {
+    public Cliente inserir(Cliente cliente) {
         System.out.println("Log: inserindo cliente");
         clienteService.inserir(cliente);
+        return cliente;
     }
 
     @Override
-    public void atualizar(Long id, Cliente cliente) {
+    public Cliente atualizar(Long id, Cliente cliente) {
         System.out.println("Log: atualizando cliente com ID " + id);
         clienteService.atualizar(id, cliente);
+        return cliente;
     }
 
     @Override

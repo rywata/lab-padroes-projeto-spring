@@ -3,6 +3,13 @@ package one.digitalinnovation.lab.padroes.projeto.spring.Adapter;
 import one.digitalinnovation.lab.padroes.projeto.spring.Model.Endereco;
 import one.digitalinnovation.lab.padroes.projeto.spring.DTO.ClienteDTO;
 
+/**
+ * Implementado para mapear dados entre a API e o serviço de endereço externo
+ * Ajuda a traduzir os dados da API externa para o formato que a aplicação entende
+ *
+ *
+ * */
+
 public class EnderecoAdapter {
 
     public static Endereco toEndereco(ClienteDTO clienteDTO) {

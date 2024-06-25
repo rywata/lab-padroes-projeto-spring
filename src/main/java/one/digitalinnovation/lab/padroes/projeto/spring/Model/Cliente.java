@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+import java.util.Optional;
+
 @Entity
 public class Cliente {
 
@@ -15,6 +17,18 @@ public class Cliente {
     private String nome;
     @ManyToOne
     private Endereco endereco;
+
+    // Construtor vazio para resolver o problema do setCep.
+    public Cliente() {
+    }
+
+    // Construtor com nome e endereco
+    public Cliente(String nome, Endereco endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+    }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -40,4 +54,8 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+    public void setCep(String cep) {
+        this.endereco = Optional.ofNullable(this.endereco).orElse(new Endereco());
+        this.endereco.setCep(cep);
+    }
 }
